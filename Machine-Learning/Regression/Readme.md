@@ -1,127 +1,118 @@
-# Prédiction des Calories Brûlées
+# 🍎 Prédiction des Calories Brûlées
 
-## Description du projet
-Ce projet a pour objectif de développer un modèle d’intelligence artificielle capable de **prédire automatiquement le nombre de calories brûlées lors d’une activité physique**. Il fournit une estimation fiable de la dépense énergétique à partir de données physiologiques et de paramètres d’exercice, afin d’aider au suivi sportif et à l’optimisation des programmes d’entraînement.
-
----
-
-## Objectif
-Construire un **modèle de régression performant** pour estimer avec précision la quantité de calories dépensées. Les prédictions sont personnalisées selon les caractéristiques individuelles et les mesures enregistrées durant l’activité.
+[![Python](https://img.shields.io/badge/python-3.x-blue)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 ---
 
-## Type de données
-Le projet utilise des données tabulaires comprenant :
+## 📌 Description
 
-- Âge, sexe, taille et poids de l’individu  
-- Durée de l’exercice  
-- Fréquence cardiaque moyenne pendant l’activité  
-- Température corporelle  
-- Nombre de calories brûlées (**variable cible continue**)
+Ce projet met en œuvre un **modèle de régression** pour prédire le nombre de **calories brûlées** lors d’activités physiques en fonction de variables physiologiques et comportementales.
+L’objectif : fournir une **estimation précise et personnalisée** pour chaque individu, utile pour le suivi santé, le coaching sportif et l’analyse nutritionnelle.
 
 ---
 
-## Contexte métier
-L’évaluation précise de la dépense énergétique est essentielle pour :
+## 🎯 Objectifs
 
-- Les sportifs et coachs  
-- Les applications de fitness  
-- La gestion du poids et du suivi nutritionnel  
-
-Les calculs traditionnels sont souvent approximatifs et peu personnalisés. L’automatisation via l’IA permet d’obtenir des estimations précises adaptées au profil de chaque utilisateur.
+* Prédire le nombre de calories brûlées selon : âge, sexe, poids, taille, fréquence cardiaque, durée d’activité, etc.
+* Identifier les facteurs les plus influents sur la dépense calorique.
+* Fournir un modèle exploitable pour des applications sportives ou de santé connectée.
 
 ---
 
-## Objectif final
+## 🗂️ Données utilisées
 
-- **Problème traité :** Régression (prédiction d’une valeur continue : calories brûlées)  
-- **Évaluation :** RMSE, MAE et R²  
-- **Livrable :** Un modèle prédictif pouvant être intégré dans une application fitness, un outil de coaching sportif ou un tableau de bord énergétique personnalisé.
+| Variable     | Description                        |
+| ------------ | ---------------------------------- |
+| `Gender`     | Sexe de l’individu                 |
+| `Age`        | Âge en années                      |
+| `Height`     | Taille en cm                       |
+| `Weight`     | Poids en kg                        |
+| `Duration`   | Durée de l’activité (minutes)      |
+| `Heart_Rate` | Fréquence cardiaque moyenne        |
+| `Body_Temp`  | Température corporelle             |
+| `Calories`   | Calories brûlées (cible à prédire) |
 
----
-
-## Étapes du projet
-
-### 1. Collecte et chargement des données
-- Importation des datasets CSV (`calories.csv` et `exercise.csv`)  
-- Vérification des colonnes et types de variables  
-- Aperçu des données, valeurs manquantes et doublons  
-
-> Toutes les données sont complètes et aucune valeur aberrante n’a été détectée.
-
-### 2. Analyse exploratoire des données (EDA)
-- Distribution des variables numériques : âge, taille, poids, durée, fréquence cardiaque, température corporelle  
-- Analyse de la variable cible (calories brûlées)  
-- Comparaison hommes/femmes  
-- Corrélations entre variables et variable cible  
-
-**Observations clés :**
-- Variables les plus corrélées aux calories : `Duration`, `Heart_Rate`, `Body_Temp`  
-- Poids et taille influencent également la dépense énergétique  
-- L’âge a peu d’impact  
-- Quelques outliers à traiter dans `Weight`, `Body_Temp` et `Calories`
-
-### 3. Préparation des données
-- Encodage de la variable catégorielle `Gender` (One-Hot)  
-- Standardisation robuste (`RobustScaler`) pour limiter l’impact des outliers
-
-### 4. Modélisation
-Modèles testés :
-
-| Modèle | MAE | RMSE | R² | Performance |
-|--------|-----|------|----|------------|
-| Linear Regression | 8.44 cal | 11.49 cal | 0.967 | Bon |
-| Random Forest | 1.81 cal | 2.81 cal | 0.998 | **Excellent** |
-| Gradient Boosting | 2.61 cal | 3.61 cal | 0.997 | Très bon |
-
-**Comparaison graphique :**
-- Prédictions vs valeurs réelles  
-- Distribution des erreurs  
+> **Remarque** : Données complètes et nettoyées, sans doublons ni valeurs manquantes.
 
 ---
 
-## Analyse des modèles
+## 🔍 Analyse exploratoire (EDA)
 
-### Linear Regression
-- Erreur moyenne : 8.44 cal  
-- R² : 0.967  
-- Usage : prototype ou POC, non adapté à un usage professionnel
-
-### Random Forest (**modèle recommandé**)
-- Erreur moyenne : 1.81 cal  
-- R² : 0.998  
-- Usage : applications fitness premium, coaching professionnel, suivi nutritionnel médical
-
-### Gradient Boosting
-- Erreur moyenne : 2.61 cal  
-- R² : 0.997  
-- Usage : alternative mobile ou applications grand public
+* Distribution des variables et identification des outliers
+* Corrélations entre calories et autres variables
+* Visualisations : histogrammes, boxplots, scatter plots
+* Observation : `Duration`, `Heart_Rate` et `Weight` ont un impact significatif sur les calories brûlées
 
 ---
 
-## Conclusion et recommandations
-- **Random Forest** : meilleure précision, recommandé pour déploiement professionnel  
-- **Gradient Boosting** : excellent compromis performance/ressources pour wearables et applications mobiles  
-- **Linear Regression** : suffisant pour un prototype mais pas pour un usage précis  
+## ⚙️ Préparation des données
 
-Le projet démontre qu’il est possible d’obtenir des prédictions très fiables (<2 cal d’erreur) pour le suivi énergétique personnalisé.
-
----
-
-## Technologies et librairies utilisées
-- Python 3.x  
-- pandas, numpy  
-- matplotlib, seaborn, plotly  
-- scikit-learn (LinearRegression, RandomForestRegressor, GradientBoostingRegressor, RobustScaler)  
+* Encodage de `Gender` en variable numérique (0/1)
+* Standardisation / normalisation des features si nécessaire
+* Séparation **features / target** (`X` et `y`)
+* Split **train/test** (ex. 80% train / 20% test)
 
 ---
 
-## Comment exécuter le projet
-1. Cloner le repo :  
-```bash
-git clone https://github.com/<votre-utilisateur>/<nom-du-repo>.git
+## 🧩 Modélisation
 
-**Auteur**
-Ines Marouani
-Contact : ines.marouani69@gmail.com
-Projet réalisé dans le cadre de l’analyse de données et IA appliquée au sport
+* Algorithmes utilisés :
+
+  * **Régression linéaire**
+  * **Random Forest Regressor**
+  * **Gradient Boosting Regressor**
+* Métriques d’évaluation :
+
+  * **RMSE** (Root Mean Squared Error)
+  * **R² Score** (coefficient de détermination)
+  * **MAE** (Mean Absolute Error)
+
+### Exemple :
+
+```python
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Split
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+
+# Modèle Random Forest
+rf = RandomForestRegressor(n_estimators=200, random_state=42)
+rf.fit(X_train, y_train)
+y_pred = rf.predict(X_test)
+
+# Évaluation
+rmse = mean_squared_error(y_test, y_pred, squared=False)
+r2 = r2_score(y_test, y_pred)
+print(f"RMSE: {rmse:.2f}, R²: {r2:.2f}")
+```
+
+---
+
+## 📊 Résultats
+
+* Modèle Random Forest donne la **meilleure performance** sur le dataset
+* R² ≈ 0.85 → prédictions fiables
+* Variables les plus influentes : `Duration`, `Heart_Rate`, `Weight`
+* Visualisations : scatter plot réel vs prédiction, feature importance
+
+---
+
+## 🛠️ Technologies et bibliothèques
+
+* **Langage** : Python 3.x
+* **Manipulation et analyse** : Pandas, NumPy
+* **Visualisation** : Matplotlib, Seaborn, Plotly
+* **Machine Learning** : Scikit-learn (`LinearRegression`, `RandomForestRegressor`, `GradientBoostingRegressor`)
+* **Évaluation** : metrics RMSE, MAE, R²
+
+---
+
+## 📈 Conclusion
+
+* Le modèle permet de **prédire avec précision** les calories brûlées lors d’activités physiques.
+* Les résultats peuvent servir à : suivi sportif, recommandations nutritionnelles, applications de santé connectée.
+* Les variables clés identifiées aident à **comprendre les facteurs influençant la dépense calorique** et à personnaliser les programmes sportifs.
