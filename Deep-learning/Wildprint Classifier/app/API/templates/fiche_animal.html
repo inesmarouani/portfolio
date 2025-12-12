@@ -1,0 +1,87 @@
+uvicorn app:app --reload
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Découvrez les informations détaillées sur l’animal identifié : caractéristiques, habitat et anecdotes.">
+    <title>Fiche animal</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='images/favicon-32x32.png') }}">
+    <!-- CSS -->
+    <link href="{{ url_for('static', path='styles/styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='styles/fiche_animal.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='styles/header_footer.css')}}">
+    <!-- Fonts// Poppins: 300, 400, 500, 600, 700 | Manrope: 300, 500 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- JS -->
+    <script src="{{ url_for('static', path='js/decor-dot.js')}}" defer></script>
+    <script src="{{ url_for('static', path='js/header.js')}}"></script>
+    <script src="{{ url_for('static', path='js/footer.js') }}"></script>
+</head>
+
+<body>
+    <!-- Lien d'évitement permettant de passer directement au contenu principal -->
+    <a href="#contenu" class="skip-link">Aller au contenu principal</a>
+    <div id="insert-header">{% include "components/header.html" %}</div>
+    {% if animal_info %}
+    <div class="page">
+        <div class="decor-dots" id="decorDots" aria-hidden="true"></div>
+        <main id="contenu">
+            <div class="main-container">
+                <section>
+                    <h1 data-decor-avoid>{{ animal_info.espece}}</h1>
+                    <h2 data-decor-avoid>{{ animal_info.nom_latin }}</h2>
+                </section>
+                <section class="description-container" data-decor-avoid>
+                    <img src="{{ animal_info.image}}" alt="Photo d'un {{ animal_info.espece}}" data-decor-avoid>
+                    <div class="description-text" data-decor-avoid>
+                        <h3>Description</h3>
+                        <p>{{ animal_info.description }}</p>
+                    </div>
+                </section>
+                <section class="habitat-container" data-decor-avoid>
+                    <h4 data-decor-avoid>{{ animal_info.habitat}}</h4>
+                </section>
+                <section class="info-container" data-decor-avoid>
+                    <div class="info-block" data-decor-avoid>
+                        <img src="{{ url_for ('static', path = 'images/fiche_animal/logo1.png') }}" alt=""
+                            data-decor-avoid>
+                        <h4 data-decor-avoid>{{ animal_info.famille}}</h4>
+                    </div>
+                    <div class="info-block" data-decor-avoid>
+                        <img src="{{ url_for ('static', path = 'images/fiche_animal/logo2.svg') }}" alt="Taille"
+                            data-decor-avoid>
+                        <h4>{{ animal_info.taille}}</h4>
+                    </div>
+                    <div class="info-block" data-decor-avoid>
+                        <img src="{{ url_for ('static', path = 'images/fiche_animal/logo3.svg') }}" alt="Région"
+                            data-decor-avoid>
+                        <h4 data-decor-avoid>{{ animal_info.region}}</h4>
+                    </div>
+                </section>
+                <section class="fun-fact-container" data-decor-avoid>
+                    <img src="{{ url_for ('static', path = 'images/fiche_animal/logo_loupe.png') }}" alt=""
+                        class="logo-loupe" data-decor-avoid>
+                    <div class="fun-fact-text">
+                        <h3 data-decor-avoid>Le saviez-vous ?</h3>
+                        <p data-decor-avoid>{{ animal_info.fun_fact}}</p>
+                    </div>
+                    <img src="{{ animal_info.image_fun_fact }}" alt="Photo d'un {{ animal_info.espece }} "
+                        data-decor-avoid>
+                </section>
+            </div>
+        </main>
+    </div>
+    {% else %}
+    <p>Aucune information disponible pour cette espèce.</p>
+    {% endif %}
+    <div id="insert-footer">{% include "components/footer.html" %}</div>
+</body>
+
+</html>

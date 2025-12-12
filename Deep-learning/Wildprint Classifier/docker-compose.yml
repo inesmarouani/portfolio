@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: ./app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app/API/static/uploads:/app/API/static/uploads  # Pour persister les fichiers uploadés
+    environment:
+      - TZ=Europe/Paris
+    restart: unless-stopped
+
+  # (Optionnel) monitoring
+  monitoring:
+    build:
+      context: ./monitoring
+    volumes:
+      - ./monitoring:/monitoring
+    restart: unless-stopped

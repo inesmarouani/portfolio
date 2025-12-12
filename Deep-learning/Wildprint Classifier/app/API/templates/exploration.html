@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorez les informations sur les différents animaux de notre base de données.">
+    <title>Explorer</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='images/favicon-32x32.png') }}">
+    <!-- CSS -->
+    <link href="{{ url_for('static', path='styles/styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='styles/exploration.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='styles/header_footer.css') }}">
+    <!-- Fonts// Poppins: 300, 400, 500, 600, 700 | Manrope: 300, 500 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- JS -->
+    <script src="{{ url_for('static', path='js/decor-dot.js') }}" defer></script>
+    <script src="{{ url_for('static', path='js/header.js') }}"></script>
+    <script src="{{ url_for('static', path='js/footer.js') }}"></script>
+</head>
+
+<body>
+    <!-- Lien d'évitement permettant de passer directement au contenu principal -->
+    <a href="#contenu" class="skip-link">Aller au contenu principal</a>
+    <div id="insert-header">{% include "components/header.html" %}</div>
+    <main id="contenu">
+        <div class="exploration-container">
+            <section class="container-texte-haut">
+                <div class="text-en-bas">
+                    <h1>Chaque trace raconte une histoire,<br>laissez-nous vous la dévoiler</h1>
+                    <p>Explorez la richesse de la faune sauvage en sélectionnant les espèces ci-dessous ou en scannant
+                        une empreinte.</p>
+                </div>
+                <a href="/scan" class="print-scan-button">Scanner une empreinte</a>
+            </section>
+            <div class="stats">
+                <div class="stat">
+                    <p class="number">217M</p>
+                    <p class="label">Observations</p>
+                </div>
+                <div class="stat">
+                    <p class="number">13</p>
+                    <p class="label">Espèces</p>
+                </div>
+                <div class="stat">
+                    <p class="number">450K</p>
+                    <p class="label">Identificateurs</p>
+                </div>
+            </div>
+            <div class="gallery">
+                <a href="/fiche_animal/Castor">
+                    <img src="{{ url_for('static', path='images/exploration/castor.png') }}" alt="Photo d'un castor">
+                    <span class="animal-name">Castor</span>
+                </a>
+                <a href="/fiche_animal/Chat">
+                    <img src="{{ url_for('static', path='images/exploration/chat.png') }}" alt="Photo d'un chat">
+                    <span class="animal-name">Chat</span>
+                </a>
+                <a href="/fiche_animal/Chien">
+                    <img src="{{ url_for('static', path='images/exploration/chien.png') }}" alt="Photo d'un chien">
+                    <span class="animal-name">Chien</span>
+                </a>
+                <a href="/fiche_animal/Coyote">
+                    <img src="{{ url_for('static', path='images/exploration/coyotte.png') }}" alt="Photo d'un coyote">
+                    <span class="animal-name">Coyote</span>
+                </a>
+                <a href="/fiche_animal/Ecureuil">
+                    <img src="{{ url_for('static', path='images/exploration/ecureuil.png') }}"
+                        alt="Photo d'un écureuil">
+                    <span class="animal-name">Écureuil</span>
+                </a>
+                <a href="/fiche_animal/Lapin">
+                    <img src="{{ url_for('static', path='images/exploration/lapin.png') }}" alt="Photo d'un lapin">
+                    <span class="animal-name">Lapin</span>
+                </a>
+                <a href="/fiche_animal/Loup">
+                    <img src="{{ url_for('static', path='images/exploration/loup.png') }}" alt="Photo de loup">
+                    <span class="animal-name">Loup</span>
+                </a>
+                <a href="/fiche_animal/Lynx">
+                    <img src="{{ url_for('static', path='images/exploration/lynx.png') }}" alt="Photo de lynx">
+                    <span class="animal-name">Lynx</span>
+                </a>
+                <a href="/fiche_animal/Ours">
+                    <img src="{{ url_for('static', path='images/exploration/ours.png') }}" alt="Photo d'ours">
+                    <span class="animal-name">Ours</span>
+                </a>
+                <a href="/fiche_animal/Puma">
+                    <img src="{{ url_for('static', path='images/exploration/puma.png') }}" alt="Photo de puma">
+                    <span class="animal-name">Puma</span>
+                </a>
+                <a href="/fiche_animal/Raton laveur">
+                    <img src="{{ url_for('static', path='images/exploration/raton_laveur.png') }}"
+                        alt="Photo de raton laveur">
+                    <span class="animal-name">Raton Laveur</span>
+                </a>
+                <a href="/fiche_animal/Renard">
+                    <img src="{{ url_for('static', path='images/exploration/renard.png') }}" alt="Photo de renard">
+                    <span class="animal-name">Renard</span>
+                </a>
+                <a href="/fiche_animal/Rat">
+                    <img src="{{ url_for('static', path='images/exploration/rat.jpg') }}" alt="Photo de rat">
+                    <span class="animal-name">Rat</span>
+                </a>
+            </div>
+        </div>
+    </main>
+    <div id="insert-footer">{% include "components/footer.html" %}</div>
+</body>
+
+</html>

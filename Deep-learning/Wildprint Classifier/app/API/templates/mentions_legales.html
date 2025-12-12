@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Mentions légales et politique de confidentialité du site WildAIPrint, détaillant la collecte, le traitement et la protection des données personnelles des utilisateurs.">
+    <title>Mentions légales et politique de confidentialité</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='images/favicon-32x32.png') }}">
+    <!-- CSS -->
+    <link href="{{ url_for('static', path='styles/styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='styles/mentions.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='styles/header_footer.css') }}">
+    <!-- Fonts// Poppins: 300, 400, 500, 600, 700 | Manrope: 300, 500 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- JS -->
+    <script src="{{ url_for('static', path='js/header.js') }}"></script>
+    <script src="{{ url_for('static', path='js/footer.js') }}"></script>
+</head>
+
+<body>
+    <!-- Lien d'évitement permettant de passer directement au contenu principal -->
+    <a href="#contenu" class="skip-link">Aller au contenu principal</a>
+    <div id="insert-header">{% include "components/header.html" %}</div>
+    <div class="main-container">
+        <h1>Mentions légales et politique de confidentialité</h1>
+
+        <h2>1. Éditeur du site</h2>
+        <p>Le site <strong>WildAIPrint</strong> est édité par :</p>
+        <ul>
+            <li><strong>Nom de l’association :</strong> WildAIPrint</li>
+            <li><strong>Adresse :</strong> 12, rue du respect des données 75001 Paris</li>
+            <li><strong>Téléphone :</strong> +33 4 00 00 00 00</li>
+            <li><strong>Email :</strong> rgpd@wildaiprint.com</li>
+            <li><strong>Directeur de la publication :</strong> Mme Micha</li>
+            <li><strong>Délégué à la protection des données (DPO) :</strong> Mr Michou</li>
+        </ul>
+
+        <h2>2. Collecte et traitement des données personnelles</h2>
+        <p>Nous collectons uniquement les photos et les informations de localisation de la photo, remplies par l'utilisateur. Aucune donnée personnelle n'est conservée. Une <strong>donnée personnelle</strong> désigne toute information permettant d’identifier
+            directement ou indirectement une personne physique (ex. : nom, prénom, email, adresse IP, localisation,
+            photo,
+            etc.).</p>
+
+        <h3>Finalités du traitement</h3>
+        <ul>
+            <li>Entraînement du modèle d'IA</li>
+            <li>Recueil des données précises sur les animaux, telles que leur fréquence de passage et leur emplacement</li>
+        </ul>
+
+        <h3>Base légale du traitement</h3>
+        <p>Le traitement des données repose sur :</p>
+        <ul>
+            <li>Le consentement explicite de l’utilisateur</li>
+            <li>L’exécution d’un contrat</li>
+            <li>Le respect d’obligations légales</li>
+        </ul>
+
+        <h3>Caractère obligatoire ou facultatif</h3>
+        <p>Certaines informations sont obligatoires pour bénéficier des services du site (envoi d'un fichier au format requis, localisation, heure et date de la prise d'empreintes). Le refus de
+            fournir ces données peut empêcher certaines actions.</p>
+
+        <h3>Destinataires des données</h3>
+        <p>Les données collectées peuvent être transmises aux services internes et, si nécessaire, aux prestataires du
+            site
+            (hébergeur, services de paiement, transporteurs).</p>
+
+        <h3>Durée de conservation</h3>
+        <p>Les données sont conservées selon les obligations légales et la finalité du traitement (ex. : 3 ans pour les
+            clients inactifs, 13 mois pour les cookies).</p>
+
+        <h2>3. Droits des utilisateurs</h2>
+        <p>Conformément au RGPD, tout utilisateur dispose des droits suivants :</p>
+        <ul>
+            <li>Droit d’accès à ses données personnelles</li>
+            <li>Droit de rectification et de suppression</li>
+            <li>Droit d’opposition au traitement</li>
+            <li>Droit à la limitation du traitement</li>
+            <li>Droit à la portabilité des données</li>
+            <li>Droit d’introduire une réclamation auprès de la CNIL (<a href="https://www.cnil.fr"
+                    target="_blank">www.cnil.fr</a>)</li>
+        </ul>
+        <p>Pour exercer ces droits : <strong>michel.michou@wildaiprint.com</strong></p>
+
+        <h2>4. Cookies et traceurs</h2>
+        <p>Nous utilisons des cookies pour analyser la navigation, améliorer le site et diffuser des publicités ciblées.
+        </p>
+
+        <h3>Consentement</h3>
+        <p>L’utilisateur doit consentir activement via une case à cocher. Les cases pré-cochées sont interdites. Le
+            silence
+            ou la simple navigation est considéré comme un refus.</p>
+
+        <h2>5. Transmission hors UE</h2>
+        <p>Si des données sont transférées hors Union européenne, des garanties conformes au RGPD sont mises en place
+            (clauses contractuelles types, certification, etc.).</p>
+
+        <h2>6. Sécurité et confidentialité</h2>
+        <p>Nous mettons en œuvre toutes les mesures techniques et organisationnelles nécessaires pour assurer la
+            sécurité et
+            la confidentialité des données personnelles collectées.</p>
+
+        <h2>7. Modifications de la politique de confidentialité</h2>
+        <p>Cette politique peut être mise à jour. Toute modification sera communiquée clairement sur le site et prendra
+            effet dès sa publication.</p>
+    </div>
+    <div id="insert-footer">{% include "components/footer.html" %}</div>
+</body>
+
+</html>

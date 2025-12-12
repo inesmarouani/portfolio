@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Page d’erreur : aucune empreinte animale trouvée. Réessayez ou scannez une autre empreinte.">
+    <title>Scanner une empreinte</title>
+    <link rel="icon" type="image/png" href="{{ url_for ('static', path ='images/favicon-32x32.png')}}">
+    <!-- CSS -->
+    <link href="{{ url_for ('static', path ='styles/styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for ('static', path ='styles/scan.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for ('static', path ='styles/header_footer.css')}}">
+    <!-- Fonts// Poppins: 300, 400, 500, 600, 700 | Manrope: 300, 500 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- JS -->
+    <script src="{{ url_for ('static', path ='js/decor-dot.js')}}" defer></script>
+    <script src="{{ url_for ('static', path ='js/header.js')}}"></script>
+    <script src="{{ url_for ('static', path ='js/footer.js')}}"></script>
+    <script src="{{ url_for('static', path='js/camera.js') }}" defer></script>
+</head>
+
+<body>
+    <!-- Lien d'évitement permettant de passer directement au contenu principal -->
+    <a href="#contenu" class="skip-link">Aller au contenu principal</a>
+    <div id="insert-header">{% include "components/header.html" %}</div>
+    {% if error %}
+    <div class="error-message">{{ error }}</div>
+    {% endif %}
+    <div class="page">
+        <div class="decor-dots" id="decorDots" aria-hidden="true"></div>
+        <main id="contenu">
+            <div class="main-container">
+                <section class="title-scan-container">
+                    <h1>Oups, aucune correspondance ne semble avoir été trouvée...</h1>
+                    <p>Réessayez ou scannez une autre empreinte</p>
+                </section>
+                <div class="scan-image-container">
+                    <form class="scan-form" action="/fiche_animal" method="post" enctype="multipart/form-data">
+                        <div class="scan-image-inner-container">
+                            <div class="scan-image-left-container">
+                                <img src="{{ url_for('static', path='images/scan/logo_patounes.png') }}"
+                                    alt="Icône de patte d'animal" class="logo-patounes">
+                                <button class="scan-bouton-secondary" type="button" id="cameraButton">
+                                    <img src="{{ url_for('static', path='images/scan/logo_camera.svg') }}"
+                                        alt="Icône de caméra">
+                                    Caméra
+                                </button>
+                                <label class="scan-bouton-secondary" for="fileInput">
+                                    <img src="{{ url_for('static', path='images/scan/logo_telecharger.svg') }}"
+                                        alt="Icône de téléchargement">
+                                    Télécharger
+                                </label>
+                                <input type="file" id="fileInput" name="file" accept="image/*" style="display:none;">
+                                <div id="image-message" style="margin-top:10px;"></div>
+                            </div>
+                            <div class="scan-image-right-container">
+                                <div class="form-fields-container">
+                                    <label for="date">Date de la photo</label>
+                                    <input type="text" id="date" name="date" placeholder="10/06/2025" required>
+                                    <label for="heure">Heure de la photo</label>
+                                    <input type="text" id="heure" name="heure" placeholder="20:12" required>
+                                    <label for="localisation">Localisation</label>
+                                    <input type="text" id="localisation" name="localisation" placeholder="Fontainebleau"
+                                        required>
+                                    <div class="consent-row">
+                                        <input type="checkbox" id="consent" name="consent" value="consent" required>
+                                        <label for="consent">En cochant cette case, je consens au traitement de mes
+                                            données personnelles conformément à la <a
+                                                href="/mentions_legales"><u>politique de confidentialité</u></a> de
+                                            l’application</label>
+                                    </div>
+                                    <p>Formats autorisés : JPG, JPEG, PNG, WEBP, et HEIC</p>
+                                </div>
+                                <button class="scan-bouton" type="submit">Analyser</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="insert-footer">{% include "components/footer.html" %}</div>
+</body>
+
+</html>

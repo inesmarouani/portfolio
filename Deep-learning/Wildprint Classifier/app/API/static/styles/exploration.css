@@ -1,0 +1,207 @@
+.stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  margin: 2rem auto;
+  width: fit-content;
+  margin-bottom: 166px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.number {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.stat .label {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px;
+  justify-content: center;
+  margin-bottom: 304px;
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1/1;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.container-texte-haut {
+  display: flex;
+  margin-top: 48px;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.exploration-container {
+  padding: 0px 82px;
+}
+
+.text-en-bas {
+  padding-right: 60px;
+}
+
+.container-texte-haut p {
+  line-height: 1.5;
+  color: #666;
+  max-width: 596px;
+}
+
+.stat p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Hover effects for gallery images */
+.gallery a {
+  position: relative;
+  display: inline-block;
+}
+
+.gallery img {
+  transition: filter 0.3s;
+}
+
+.gallery a:hover img {
+  filter: brightness(0.5);
+}
+
+.animal-name {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.gallery a:hover .animal-name {
+  opacity: 1;
+}
+
+
+/* ----------- MEDIA QUERIES POUR RESPONSIVITE ----------- */
+@media (max-width: 1200px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .exploration-container {
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .stats {
+    gap: 2rem;
+    margin-bottom: 80px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 120px;
+  }
+
+  .container-texte-haut {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px 10px;
+  }
+
+  .text-en-bas {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .number {
+    font-size: 2.5rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 60px;
+  }
+
+  .exploration-container {
+    padding: 0 8px;
+  }
+
+  .container-texte-haut p {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  .print-scan-button {
+    margin-top: 48px;
+  }
+}
+
+/* Media queries pour le hover (desktop/tablette) */
+@media (hover: hover) and (pointer: fine) {
+  .gallery a:hover img {
+    filter: brightness(0.5);
+  }
+
+  .gallery a:hover .animal-name {
+    opacity: 1;
+  }
+}
+
+/* Pour les écrans tactiles, on peut afficher le nom en permanence ou sur tap (optionnel) */
+@media (hover: none) and (pointer: coarse) {
+  .gallery img {
+    filter: none;
+  }
+
+  .animal-name {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.4);
+  }
+}

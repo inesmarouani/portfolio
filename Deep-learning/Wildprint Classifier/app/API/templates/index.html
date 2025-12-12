@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Bienvenue sur WildAIPrint : explorez les empreintes animales, apprenez à reconnaître les espèces et protégez la biodiversité.">
+    <title>Accueil</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='images/favicon-32x32.png') }}">
+    <!-- CSS -->
+    <link href="{{ url_for('static', path='styles/styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='styles/index.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='styles/header_footer.css') }}">
+    <!-- Fonts// Poppins: 300, 400, 500, 600, 700 | Manrope: 300, 500 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- JS -->
+    <script src="{{ url_for('static', path='js/decor-dot.js') }}" defer></script>
+    <script src="{{ url_for('static', path='js/header.js') }}"></script>
+    <script src="{{ url_for('static', path='js/footer.js') }}"></script>
+</head>
+<body>
+    <!-- Lien d'évitement permettant de passer directement au contenu principal -->
+    <a href="#contenu" class="skip-link">Aller au contenu principal</a>
+    <div id="insert-header">{% include "components/header.html" %}</div>
+    <div class="page">
+        <div class="decor-dots" id="decorDots" aria-hidden="true"></div>
+        <main id="contenu">
+            <div class="main-container">
+                <section class="accueil-sec1-container" data-decor-avoid>
+                    <h1 class="accueil-titre">Explorez, apprenez,<br> protégez</h1>
+                    <a href="/scan" class="print-scan-button">Scanner une empreinte</a>
+                </section>
+                <div class="animals-grid-accueil">
+                    <div class="animal-card color-chien">
+                        <img src="{{ url_for('static', path='images/accueil/1_chien.png') }}" alt="Chien">
+                    </div>
+                    <div class="animal-card color-ours">
+                        <img src="{{ url_for('static', path='images/accueil/2_ours.png') }}" alt="Ours">
+                    </div>
+                    <div class="animal-card color-loup">
+                        <img src="{{ url_for('static', path='images/accueil/3_loup.png') }}" alt="Loup">
+                    </div>
+                    <div class="animal-card color-lapin">
+                        <img src="{{ url_for('static', path='images/accueil/4_lapin.png') }}" alt="Lapin">
+                    </div>
+                    <div class="animal-card color-renard">
+                        <img src="{{ url_for('static', path='images/accueil/5_renard.png') }}" alt="Renard">
+                    </div>
+                    <div class="animal-card color-castor">
+                        <img src="{{ url_for('static', path='images/accueil/6_castor.png') }}" alt="Castor">
+                    </div>
+                </div>
+                <section class="accueil-sec2-container" data-decor-avoid>
+                    <h2 class="h2-sec2">Comment ça marche ?</h2>
+                    <div class="sec2-steps-flex">
+                        <div class="sec2-step">
+                            <img src="{{ url_for('static', path='images/accueil/comment_1.png') }}" alt="">
+                            <h4>Scannez une empreinte animale</h4>
+                        </div>
+                        <div class="sec2-step">
+                            <img src="{{ url_for('static', path='images/accueil/comment_2.png') }}" alt="">
+                            <h4>L’IA recherche la correspondance</h4>
+                        </div>
+                        <div class="sec2-step">
+                            <img src="{{ url_for('static', path='images/accueil/comment_3.png') }}" alt="">
+                            <h4>Découvrez l’espèce identifiée</h4>
+                        </div>
+                    </div>
+                    <a href="/scan" class="print-scan-button" id="index-button">Scanner une empreinte</a>
+                </section>
+                <div class="separator"></div>
+                <section class="accueil-sec3-container" data-decor-avoid>
+                    <div class="sec3-text-container">
+                        <h2>Contribuer à la science</h2>
+                        <p>Enregistrer vos rencontres avec d’autres organismes permet d’aider les scientifiques et les                       gestionnaires des ressources à comprendre quand et où les organismes sont présents afin de mieux les protéger.</p>
+                    </div>
+                    <img src="{{ url_for('static', path='images/accueil/image_contribuer.webp') }}"
+                        alt="Sous bois ensoleillé" id="sec3-image">
+                </section>
+                <div class="separator"></div>
+                <section class="accueil-sec4-container" data-decor-avoid>
+                    <img src="{{ url_for('static', path='images/accueil/app_mobile.png') }}" alt="" class="app-img">
+                    <div class="sec4-right-container">
+                        <h2>Bientôt sur votre smartphone</h2>
+                        <p>Notre application arrive très bientôt pour vous accompagner partout. Une empreinte suffit
+                            pour découvrir l’espèce et en apprendre plus sur la nature autour de vous.</p>
+                        <div class="sec4-logos-container">
+                            <img src="{{ url_for('static', path='images/accueil/playstore.png') }}" alt="">
+                            <img src="{{ url_for('static', path='images/accueil/applestore.png') }}" alt="">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <div id="insert-footer">{% include "components/footer.html" %}</div>
+</body>
+
+</html>

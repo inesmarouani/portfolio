@@ -1,0 +1,250 @@
+@media (max-width: 700px) {
+    
+}
+/* Conteneur principal pour gérer les marges */
+.main-container {
+    margin: 100px 100px 200px 100px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Conteneur titre + CTA */
+.accueil-sec1-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.accueil-titre {
+    margin-bottom: 65px;
+}
+
+/* Grille animaux */
+.animals-grid-accueil {
+    display: flex;
+    flex-wrap: wrap; /* permet de revenir à la ligne si nécessaire */
+    gap: 20px;
+    justify-content: center;
+    margin-top: 80px;
+    align-items: flex-end;
+}
+
+.animals-grid-accueil img {
+    height: auto;
+    max-width: 100%; /* images fluides */
+}
+
+/* Hauteurs max spécifiques */
+.color-chien img { max-height: 143px; }
+.color-ours img { max-height: 135px; }
+.color-loup img { max-height: 136px; }
+.color-lapin img { max-height: 126px; }
+.color-renard img { max-height: 124px; }
+.color-castor img { max-height: 128px; }
+
+/* Container Comment ça marche */
+.accueil-sec2-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#index-button {
+    display: block;
+    margin-top: 60px;
+}
+
+.h2-sec2 {
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+
+.sec2-steps-flex {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.sec2-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sec2-step img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+.sec2-step h4 {
+    text-align: center;
+    margin: 0;
+    max-width: 250px;
+}
+
+/* Container Contribuer à la science */
+.accueil-sec3-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sec3-text-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.sec3-text-container h2,
+.sec3-text-container p {
+    text-align: left;
+    width: 100%;
+}
+
+#sec3-image {
+    max-width: 500px;
+    width: 100%; /* image fluide */
+    height: auto;
+    flex-shrink: 0;
+    margin-left: 30px;
+}
+
+/* Container App mobile */
+.accueil-sec4-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 48px;
+}
+
+.sec4-right-container h2, p {
+    width: 100%;
+    text-align: right;
+}
+
+.app-img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  margin-right: 30px;
+}
+
+.sec4-right-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 1;
+}
+
+.sec4-logos-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 18px;
+  margin-top: 12px;
+  width: 100%;
+}
+
+.sec4-right-container img {
+  max-height: 47px;
+  width: auto;
+}
+
+/* Custom divider */
+.separator {
+    height: 1px;
+    background-color: black;
+    width: 950px;
+    margin: 90px auto;
+    max-width: 90%;
+}
+
+
+/* -------- MEDIA QUERIES -------- */
+
+@media (max-width: 992px) {
+    .main-container {
+        margin: 60px 40px 100px 40px;
+    }
+    .sec2-logos-step-container,
+    .sec2-caption-step-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    .accueil-sec3-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .accueil-sec4-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+    }
+    .sec4-right-container {
+        text-align: center;
+        align-items: center;
+    }
+    .sec4-logos-container {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 700px) {
+    .sec2-steps-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .sec2-step {
+        max-width: 100%;
+    }
+    .sec2-step img {
+        width: 80px;
+    }
+    .sec2-step h4 {
+        font-size: 0.95rem;
+    }
+    .separator {
+        display: none !important;
+    }
+    .accueil-sec3-container,
+    .accueil-sec4-container {
+        text-align: center;
+    }
+    .sec3-text-container h2,
+    .sec3-text-container p,
+    .sec4-right-container h2,
+    .sec4-right-container p {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-container {
+        margin: 40px 16px 60px 16px;
+    }
+    .sec2-logos-step-container,
+    .sec2-caption-step-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .sec2-logos-step-container img {
+        max-width: 150px;
+    }
+    .accueil-sec3-container {
+        margin: 60px 20px;
+    }
+    .accueil-sec4-container {
+        margin: 0 20px 150px 20px;
+    }
+}

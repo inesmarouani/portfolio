@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+wild_alprint_env/
+uvicorn

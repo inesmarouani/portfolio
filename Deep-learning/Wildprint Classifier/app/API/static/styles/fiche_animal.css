@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+}
+
+h1 {
+    margin-bottom: -5px;
+}
+
+h2:first-of-type {
+    margin-bottom: 32px;
+}
+
+/* Conteneur principal pour gérer les marges */
+.main-container {
+    margin: 100px 100px 200px 100px;
+}
+
+/* Conteneur description */
+.description-container {
+    display: flex;
+    margin-bottom: 130px;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Permet le retour à la ligne sur petits écrans */
+}
+
+.description-container img {
+    max-width: 600px;
+    width: 100%; /* Image responsive */
+    height: auto;
+}
+
+.description-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 600px;
+    margin-right: 50px;
+}
+
+/* Conteneur habitat */
+.habitat-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+    text-align: center;
+    max-width: 680px;
+    padding: 0 16px; /* Ajout pour éviter que le texte colle aux bords */
+}
+
+/* Conteneur infos */
+.info-container {
+    display: flex;
+    gap: 32px;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom: 150px;
+    flex-wrap: wrap; /* Les blocs passent en colonne si pas de place */
+}
+
+.info-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 200px; /* Chaque bloc prend min 200px et s’adapte */
+    text-align: center;
+}
+
+.info-block img {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Conteneur fun fact */
+.fun-fact-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: wrap; /* Pour gérer le mobile */
+    gap: 24px;
+}
+
+.fun-fact-container img:last-of-type {
+    max-width: 520px;
+    width: 100%; /* Image responsive */
+    height: auto;
+}
+
+.fun-fact-text {
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 150px;
+}
+
+/* Logo loupe */
+.logo-loupe {
+    position: absolute;
+    left: -100px;
+    top: -230px;
+    max-width: 240px;
+    height: auto;
+    z-index: 100;
+}
+
+/* -------- MEDIA QUERIES -------- */
+
+/* Tablette */
+@media (max-width: 992px) {
+    .main-container {
+        margin: 60px 40px 100px 40px; /* Marges réduites */
+    }
+
+    .description-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .description-text {
+        margin-right: 0;
+        margin-top: 24px;
+    }
+
+    .fun-fact-text {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .logo-loupe {
+        display: none; /* Trop gros sur tablette */
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .main-container {
+        margin: 40px 16px 60px 16px;
+    }
+
+    .info-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 48px;
+    }
+
+    .info-block {
+        flex: none; /* Empêche de s'étirer */
+    }
+
+    .fun-fact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fun-fact-text {
+        max-width: 100%;
+    }
+}
