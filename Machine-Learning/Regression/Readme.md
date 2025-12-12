@@ -1,7 +1,3 @@
-Voici la traduction en **anglais** :
-
----
-
 # 🍎 Burned Calories Prediction
 
 [![Python](https://img.shields.io/badge/python-3.x-blue)](https://www.python.org/)
@@ -122,7 +118,4 @@ print(f"RMSE: {rmse:.2f}, R²: {r2:.2f}")
 * Results can be used for: sports tracking, nutritional recommendations, connected health applications.
 * The identified key variables help **understand the factors influencing caloric expenditure** and enable personalized training programs.
 
----
-
-Si vous souhaitez une version plus courte, plus technique ou formatée pour un README GitHub, n’hésitez pas à me le demander !
 
