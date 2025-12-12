@@ -1,4 +1,8 @@
-# 🍎 Prédiction des Calories Brûlées
+Voici la traduction en **anglais** :
+
+---
+
+# 🍎 Burned Calories Prediction
 
 [![Python](https://img.shields.io/badge/python-3.x-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
@@ -7,68 +11,69 @@
 
 ## 📌 Description
 
-Ce projet met en œuvre un **modèle de régression** pour prédire le nombre de **calories brûlées** lors d’activités physiques en fonction de variables physiologiques et comportementales.
-L’objectif : fournir une **estimation précise et personnalisée** pour chaque individu, utile pour le suivi santé, le coaching sportif et l’analyse nutritionnelle.
+This project implements a **regression model** to predict the number of **calories burned** during physical activities based on physiological and behavioral variables.
+The goal: provide an **accurate and personalized estimate** for each individual—useful for health monitoring, sports coaching, and nutritional analysis.
 
 ---
 
-## 🎯 Objectifs
+## 🎯 Objectives
 
-* Prédire le nombre de calories brûlées selon : âge, sexe, poids, taille, fréquence cardiaque, durée d’activité, etc.
-* Identifier les facteurs les plus influents sur la dépense calorique.
-* Fournir un modèle exploitable pour des applications sportives ou de santé connectée.
-
----
-
-## 🗂️ Données utilisées
-
-| Variable     | Description                        |
-| ------------ | ---------------------------------- |
-| `Gender`     | Sexe de l’individu                 |
-| `Age`        | Âge en années                      |
-| `Height`     | Taille en cm                       |
-| `Weight`     | Poids en kg                        |
-| `Duration`   | Durée de l’activité (minutes)      |
-| `Heart_Rate` | Fréquence cardiaque moyenne        |
-| `Body_Temp`  | Température corporelle             |
-| `Calories`   | Calories brûlées (cible à prédire) |
-
-> **Remarque** : Données complètes et nettoyées, sans doublons ni valeurs manquantes.
+* Predict the number of calories burned based on: age, gender, weight, height, heart rate, activity duration, etc.
+* Identify the most influential factors affecting caloric expenditure.
+* Provide a usable model for sports or connected health applications.
 
 ---
 
-## 🔍 Analyse exploratoire (EDA)
+## 🗂️ Dataset
 
-* Distribution des variables et identification des outliers
-* Corrélations entre calories et autres variables
-* Visualisations : histogrammes, boxplots, scatter plots
-* Observation : `Duration`, `Heart_Rate` et `Weight` ont un impact significatif sur les calories brûlées
+| Variable     | Description                       |
+| ------------ | --------------------------------- |
+| `Gender`     | Individual’s gender               |
+| `Age`        | Age in years                      |
+| `Height`     | Height in cm                      |
+| `Weight`     | Weight in kg                      |
+| `Duration`   | Duration of activity (minutes)    |
+| `Heart_Rate` | Average heart rate                |
+| `Body_Temp`  | Body temperature                  |
+| `Calories`   | Calories burned (target variable) |
+
+> **Note**: Dataset is complete and cleaned, with no duplicates or missing values.
 
 ---
 
-## ⚙️ Préparation des données
+## 🔍 Exploratory Data Analysis (EDA)
 
-* Encodage de `Gender` en variable numérique (0/1)
-* Standardisation / normalisation des features si nécessaire
-* Séparation **features / target** (`X` et `y`)
-* Split **train/test** (ex. 80% train / 20% test)
+* Distribution of variables and outlier detection
+* Correlations between calories and other variables
+* Visualizations: histograms, boxplots, scatter plots
+* Observation: `Duration`, `Heart_Rate`, and `Weight` have a significant impact on calories burned
 
 ---
 
-## 🧩 Modélisation
+## ⚙️ Data Preparation
 
-* Algorithmes utilisés :
+* Encoding `Gender` as a numerical variable (0/1)
+* Standardization/normalization of features when needed
+* Separation into **features / target** (`X` and `y`)
+* **Train/test split** (e.g., 80% train / 20% test)
 
-  * **Régression linéaire**
+---
+
+## 🧩 Modeling
+
+* Algorithms used:
+
+  * **Linear Regression**
   * **Random Forest Regressor**
   * **Gradient Boosting Regressor**
-* Métriques d’évaluation :
+
+* Evaluation metrics:
 
   * **RMSE** (Root Mean Squared Error)
-  * **R² Score** (coefficient de détermination)
+  * **R² Score** (coefficient of determination)
   * **MAE** (Mean Absolute Error)
 
-### Exemple :
+### Example:
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -79,12 +84,12 @@ from sklearn.metrics import mean_squared_error, r2_score
 # Split
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
 
-# Modèle Random Forest
+# Random Forest model
 rf = RandomForestRegressor(n_estimators=200, random_state=42)
 rf.fit(X_train, y_train)
 y_pred = rf.predict(X_test)
 
-# Évaluation
+# Evaluation
 rmse = mean_squared_error(y_test, y_pred, squared=False)
 r2 = r2_score(y_test, y_pred)
 print(f"RMSE: {rmse:.2f}, R²: {r2:.2f}")
@@ -92,27 +97,32 @@ print(f"RMSE: {rmse:.2f}, R²: {r2:.2f}")
 
 ---
 
-## 📊 Résultats
+## 📊 Results
 
-* Modèle Random Forest donne la **meilleure performance** sur le dataset
-* R² ≈ 0.85 → prédictions fiables
-* Variables les plus influentes : `Duration`, `Heart_Rate`, `Weight`
-* Visualisations : scatter plot réel vs prédiction, feature importance
+* The Random Forest model provides the **best performance** on the dataset
+* R² ≈ 0.85 → reliable predictions
+* Most influential variables: `Duration`, `Heart_Rate`, `Weight`
+* Visualizations: real vs predicted scatter plot, feature importance
 
 ---
 
-## 🛠️ Technologies et bibliothèques
+## 🛠️ Technologies and Libraries
 
-* **Langage** : Python 3.x
-* **Manipulation et analyse** : Pandas, NumPy
-* **Visualisation** : Matplotlib, Seaborn, Plotly
-* **Machine Learning** : Scikit-learn (`LinearRegression`, `RandomForestRegressor`, `GradientBoostingRegressor`)
-* **Évaluation** : metrics RMSE, MAE, R²
+* **Language**: Python 3.x
+* **Data manipulation & analysis**: Pandas, NumPy
+* **Visualization**: Matplotlib, Seaborn, Plotly
+* **Machine Learning**: Scikit-learn (`LinearRegression`, `RandomForestRegressor`, `GradientBoostingRegressor`)
+* **Evaluation**: RMSE, MAE, R² metrics
 
 ---
 
 ## 📈 Conclusion
 
-* Le modèle permet de **prédire avec précision** les calories brûlées lors d’activités physiques.
-* Les résultats peuvent servir à : suivi sportif, recommandations nutritionnelles, applications de santé connectée.
-* Les variables clés identifiées aident à **comprendre les facteurs influençant la dépense calorique** et à personnaliser les programmes sportifs.
+* The model allows for **accurate prediction** of calories burned during physical activities.
+* Results can be used for: sports tracking, nutritional recommendations, connected health applications.
+* The identified key variables help **understand the factors influencing caloric expenditure** and enable personalized training programs.
+
+---
+
+Si vous souhaitez une version plus courte, plus technique ou formatée pour un README GitHub, n’hésitez pas à me le demander !
+
